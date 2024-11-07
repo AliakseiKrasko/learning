@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button} from './components/Button';
 import {ListComponets} from './components/ListComponets';
 import {ListCar} from './components/ListCar';
+import {InputButtonFull} from './components/InputButtonFull';
 
 
 
@@ -52,15 +53,15 @@ function App() {
       {message: 'message4'}
 
   ]);
-
+const addMessage=(title:string)=> {
+    let newMessage = {message: title}
+    setMessage([newMessage, ...message])
+}
 
   return (
 
       <>
-          <div>
-              <input type="text"/>
-              <button>Added</button>
-          </div>
+          <InputButtonFull addMessage={addMessage} />
           {message.map((el, index)=>{
               return (
                   <div key={index}>{el.message}</div>
