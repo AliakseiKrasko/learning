@@ -45,10 +45,27 @@ function App() {
     setCount(0);
   }
 
+  const [message, setMessage] = useState([
+      {message: 'message1'},
+      {message: 'message2'},
+      {message: 'message3'},
+      {message: 'message4'}
+
+  ]);
+
 
   return (
 
       <>
+          <div>
+              <input type="text"/>
+              <button>Added</button>
+          </div>
+          {message.map((el, index)=>{
+              return (
+                  <div key={index}>{el.message}</div>
+              )
+          })}
           <ListCar topCars={topCars} />
           <ListComponets students={students} />
           <div style={{margin: '30px 500px', display: 'flex', justifyContent: 'center'}}>
